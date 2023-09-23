@@ -84,11 +84,11 @@ int main() {
         int steps = 0; //количество пройденных итераций игры, от него зависит, кто делает код
         while(game_run) { //проверяет, что игра еще не закончилась
             vector<int> dop = nim; //костыль для избежания рекурсивной функции gameplay
-            nim = gameplay(dop, game_run);  //реализация кода
+            nim = gameplay(dop, steps, game_run);  //реализация кода
 
             int sum = 0;
             for (int i = 0; i < nim.size(); ++i) { //проверка кол-ва камней в игре
-                sum += nim[i] ** 2;
+                sum += nim[i];
             }
             if (sum < 1){ //если камни закончились
                 game_run = false; //предварительная остановка игры
